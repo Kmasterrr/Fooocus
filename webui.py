@@ -17,7 +17,7 @@ import modules.meta_parser
 import args_manager
 import copy
 
-from modules.sdxl_styles import legal_style_names
+from modules.sdxl_styles import style_keys, aspect_ratios, fooocus_expansion, default_styles
 from modules.private_logger import get_current_html_path
 from modules.ui_gradio_extensions import reload_javascript
 from modules.auth import auth_enabled, check_auth
@@ -268,10 +268,9 @@ with shared.gradio_root:
                                               value="",
                                               label='Search Styles')
                 style_selections = gr.CheckboxGroup(show_label=False, container=False,
-                                                    choices=copy.deepcopy(style_sorter.all_styles),
-                                                    value=copy.deepcopy(modules.config.default_styles),
-                                                    label='Selected Styles',
-                                                    elem_classes=['style_selections'])
+                                                    choices=[fooocus_expansion] + style_keys,
+                                                    value=[fooocus_expansion] + default_styles,
+                                                    label='Image Style')
                 gradio_receiver_style_selections = gr.Textbox(elem_id='gradio_receiver_style_selections', visible=False)
 
                 shared.gradio_root.load(lambda: gr.update(choices=copy.deepcopy(style_sorter.all_styles)),
