@@ -17,7 +17,7 @@ import modules.meta_parser
 import args_manager
 import copy
 
-from modules.sdxl_styles import style_keys, aspect_ratios, fooocus_expansion, default_styles
+from modules.sdxl_styles import style_keys, aspect_ratios, fooocus_expansion, default_styles, legal_style_names
 from modules.private_logger import get_current_html_path
 from modules.ui_gradio_extensions import reload_javascript
 from modules.auth import auth_enabled, check_auth

@@ -975,3 +975,7 @@ aspect_ratios = {str(v[0]) + '×' + str(v[1]): v for k, v in SD_XL_BASE_RATIOS.i
 def apply_style(style, positive):
     p, n = styles[style]
     return p.replace('{prompt}', positive), n
+
+style_keys = list(styles.keys())
+fooocus_expansion = "Fooocus V2"
+legal_style_names = [fooocus_expansion] + style_keys
